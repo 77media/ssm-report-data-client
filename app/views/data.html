@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1>Data</h1>
+  <p class="lead">
+    Always a pleasure scaffolding your apps.
+  </p>
+</div>
+
+<form role="form" name="form" angular-validator novalidate>
+  <div class="form-group hr">
+    <label class="control-label">Organization Token *</label>
+    <input ng-model="token" type="text" />
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-wide btn-success" ng-click="search()">Search</button>
+  </div>
+  <div class="form-group" ng-repeat="item in data.pageBlocks">
+    <label class="control-label">Body Text *</label>
+  </div>
+</form>
