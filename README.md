@@ -1,7 +1,7 @@
 # ssm-report-data-client
 Sample web client for viewing report data from a 77media platform.
 
-Demo Site ssm-report-data-client
+Demo Site https://ssm-report-data-client.azurewebsites.net
 
 #### request
 A POST is preferred to a GET because more fields can be sent and data is not logged in the url like in a GET.
