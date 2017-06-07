@@ -1,19 +1,72 @@
 <div class="jumbotron">
   <h1>Data</h1>
   <p class="lead">
-    Always a pleasure scaffolding your apps.
+    
   </p>
 </div>
 
 <form role="form" name="form" angular-validator novalidate>
   <div class="form-group hr">
-    <label class="control-label">Organization Token *</label>
-    <input ng-model="token" type="text" />
+    <label class="control-label">Platform Url * </label>
+    <input ng-model="model.platform" type="text" />
+  </div>
+  <div class="form-group hr">
+    <label class="control-label">Organization Token * </label>
+    <input ng-model="model.token" type="text" />
+  </div>
+  <div class="form-group hr">
+    <label class="control-label">Start Date * </label>
+    <input ng-model="model.startDate" type="datetime-local" />
+  </div>
+  <div class="form-group hr">
+    <label class="control-label">End Date * </label>
+    <input ng-model="model.endDate" type="datetime-local" />
+  </div>
+  <div class="form-group hr">
+    <label class="control-label">Search </label>
+    <input ng-model="model.search" type="text" />
   </div>
   <div class="form-group">
     <button type="button" class="btn btn-wide btn-success" ng-click="search()">Search</button>
   </div>
-  <div class="form-group" ng-repeat="item in data.pageBlocks">
-    <label class="control-label">Body Text *</label>
+  <div class="form-group">
+    <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
+      <thead>
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Member Identifier</th>
+          <th>Activity Title</th>
+          <th>Registration</th>
+          <th>Date Started</th>
+          <th>Progress</th>
+          <th>Date Completed</th>
+          <th>Completion Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in rowCollection">
+          <td>{{row.firstName}} </td>
+          <td>{{row.lastName}} </td>
+          <td>{{row.email}} </td>
+          <td>{{row.memberIdentifier}} </td>
+          <td>{{row.activityTitle}} </td>
+          <td>{{row.registration}} </td>
+          <td>{{row.dateStarted | date:'shortDate'}} </td>
+          <td>{{row.progress}} </td>
+          <td>{{row.dateCompleted | date:'shortDate'}} </td>
+          <td>{{row.completionCode}} </td>
+        </tr>
+      </tbody>
+      <tfoot class="ssm-table-pagination" ng-show="!isLoading && rowCollection.length">
+        <tr ng-style="rowCollection.length<11 ? {'height': '0', 'margin-top':'-1px'} : {}">
+          <td colspan="4" class="text-center" ng-style="rowCollection.length<11 ? {'height': '0', 'min-height':'none'} : {}">
+            <div st-pagination st-safe-src="safe" st-items-by-page="10" st-displayed-pages="8" st-template="views/paging.client.template.html"></div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    </body>
   </div>
 </form>

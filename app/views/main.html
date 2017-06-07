@@ -1,23 +1,35 @@
 <div class="jumbotron">
   <h1 style="display: none">77media Report Data Client</h1>
   <p class="lead">
-    <img src="images/logo.png" alt="77 media"><br>
-    Report Data Client
+    <img src="images/logo.png" alt="77 media"><br> Report Data Client
   </p>
   <p><a class="btn btn-lg btn-success" href="#!/data">Get Some Data! <span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
+  <h4>Request</h4>
   <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
+    1. Your organization will be provided with a route to access completion data for your members.
   </p>
-
-  <h4>Angular</h4>
   <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
+    2. The route has 3 required parameters which are token (which we provide you), start date and end date.
   </p>
+  <p>token: DataTypes.UUID,</p>
+  <p>startDate: DataTypes.DATE,</p>
+  <p>endDate: DataTypes.DATE</p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+
+  <h4>Response</h4>
+  <p>The following fields will be reported to your organization whether you are pulling the data (Enhanced) or having the data
+    pushed to you (Real-Time).</p>
+  <p>firstName: DataTypes.STRING,</p>
+  <p>lastName: DataTypes.STRING,</p>
+  <p>email: { type: DataTypes.STRING, unique: true},</p>
+  <p>memberIdentifier: DataTypes.STRING (not available for native implementations),</p>
+  <p>activityTitle: DataTypes.STRING,</p>
+  <p>registration: DataTypes.UUID,</p>
+  <p>dateStarted: DataTypes.DATE,</p>
+  <p>progress: DataTypes.DECIMAL,</p>
+  <p>dateCompleted: DataTypes.DATE,</p>
+  <p>completionCode: DataTypes.UUID</p>
 </div>

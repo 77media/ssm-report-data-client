@@ -1,0 +1,7 @@
+<nav ng-if="numPages && pages.length >= 2">
+	<ul class="pagination">
+		<li ng-class="{'disabled': currentPage===1}"><a href="javascript:void(0)" ng-click="selectPage(currentPage-1)">Previous</a></li>
+		<li ng-class="{'active': page===currentPage}" ng-repeat="page in pages"><a href="javascript:void(0)" ng-click="selectPage(page)">{{page}}</a></li>
+		<li ng-class="{'disabled': currentPage===pages.length}"><a href="javascript:void(0)" ng-click="selectPage(currentPage+1)">Next</a>
+	</ul>
+</nav>

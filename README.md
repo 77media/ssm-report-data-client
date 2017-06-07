@@ -1,75 +1,79 @@
 # ssm-report-data-client
 Sample web client for viewing report data from a 77media platform.
 
+Demo Site ssm-report-data-client
+
 #### request
 A POST is preferred to a GET because more fields can be sent and data is not logged in the url like in a GET.
 
 In production the route should always be secured with SSL encryption via https.
 
 HTTP POST
-http://localhost:3000/api/verify
+http://localhost:3000/api/reports/progress
 
 ```javascript
 {  
-    "lastName": "Doe",
-    "confirmationNumber": "4567" 
+    "token": "f7e1379c-35ad-45f9-b0fa-6ef011e73938",
+    "startDate": "0001-01-01T00:00:00",
+    "endDate": "0001-01-01T00:00:00"
 }  
 ```
 
 #### result
 
 ```javascript
-{  
-  "id": 1,
-  "isValid": true,
-  "firstName": "John",
-  "lastName": "Doe",
-  "email": null,
-  "dateOfBirth": "0001-01-01T00:00:00",
-  "country": null,
-  "region": null,
-  "address": null,
-  "address2": null,
-  "city": null,
-  "postal": null,
-  "gender": null,
-  "position": null,
-  "membershipId": "12345",
-  "membershipExpiration": "2020-01-01T00:00:00" 
-}
+[
+    {  
+        "firstName": "System Administrator",
+        "lastName": "Administrator",
+        "email": "admin@77media.com",
+        "memberIdentifier": "12345",
+        "activityTitle": "Youth Development Course",
+        "registration": "a7e1379c-35ad-45f9-b0fa-6ef011e7368b",
+        "dateStarted": "2017-05-11T00:00:00",
+        "progress": "100",
+        "dateCompleted": "2017-05-16T00:00:00",
+        "completionCode": "Fake Code"
+    },
+    {  
+        "firstName": "System Administrator",
+        "lastName": "Administrator",
+        "email": "admin@77media.com",
+        "memberIdentifier": "12345",
+        "activityTitle": "Test",
+        "registration": "g7e1879c-35ad-45f9-b0fa-5ef011e7368b",
+        "dateStarted": "2017-05-25T00:00:00",
+        "progress": "0",
+        "dateCompleted": "",
+        "completionCode": ""
+    }
+]
 ```
 
 ## Process Overview
+### Enhanced
 
-1. Your organization would direct all of your members to register on the SafeSport portal using a special link. This link would be specific to your organization only and would automatically open a dialog box with your organization auto-selected. All your members would have to enter would be their member identifier.
+1. Your organization will be provided with a route to access completion data for your members.
 
-2. Your members would enter their member identifier. This identifier would then be passed to your organization’s web service. Your system would then determine whether or not the identifier is valid.
-
-3. If the identifier is valid, your organization passes back that it is valid as well as the user’s information to complete the SafeSport registration form. You can pass back as many or as few as fields as you wish. For any field not passed back, users must enter the information themselves.
-
-4. If the identifier is NOT valid, then your organization passes back that it is invalid. The user then has the opportunity to re-enter or contact your organization for help.
-
-## Organization Registration Fields
-The following fields are required in the user registration process. Any field not passed to the platform in the service must be manually filled out by your members.
+2. The route has 3 required parameters which are token (which we provide you), start date and end date.
 ```javascript
-    isValid: DataTypes.BOOLEAN,  
-    firstName: DataTypes.STRING, 
-    lastName: DataTypes.STRING,
-    email: { type: DataTypes.STRING, unique: true},
-    dateOfBirth: DataTypes.DATE,
-    country: DataTypes.STRING,
-    region: DataTypes.STRING,
-    address: DataTypes.STRING,  
-    address2: DataTypes.STRING,
-    city: DataTypes.STRING,
-    postal: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    position: DataTypes.STRING // (Administrator, Athlete, Coach, Official, Other, Parent, Volunteer)  
-
+    token: DataTypes.UUID,
+    startDate: DataTypes.DATE,
+    endDate: DataTypes.DATE
 ```
 
-Membership expiration can be used if you want to require your members to verify again after their membership has expired. Post expiration, your members will not be able to complete courses on the platform until after they have re-verified their membership.
-
+## Organization Registration Fields
+The following fields will be reported to your organization whether you are pulling the data (Enhanced) or having the data pushed to you (Real-Time).
 ```javascript
-    membershipExpiration: DataTypes.DATE
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: { type: DataTypes.STRING, unique: true},
+    memberIdentifier: DataTypes.STRING (not available for native implementations),
+    activityTitle: DataTypes.STRING,
+    registration: DataTypes.UUID,
+    dateStarted: DataTypes.DATE,
+    progress: DataTypes.DECIMAL,
+    dateCompleted: DataTypes.DATE,
+    completionCode: DataTypes.UUID  
+
 ```
