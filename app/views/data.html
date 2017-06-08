@@ -49,6 +49,7 @@ $scope.data = {
 $http.post('{{model.platform}}/api/reports/progress/', $scope.data).then(
   function (success) {
     console.log(success.data.count);
+    console.log(success.data.rows);
   },
   function (error) {
     console.log(error);
