@@ -17,7 +17,7 @@ angular.module('ssmReportDataClientApp')
     };
 
     $scope.model = {
-      platform: 'https://ssm-lms.azurewebsites.net',
+      platform: 'https://safesport-platform-staging.azurewebsites.net',
       token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938',
       search: '',
       startDate: new Date().subtractHours(4),
