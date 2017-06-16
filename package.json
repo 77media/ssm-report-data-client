@@ -31,8 +31,8 @@
     "time-grunt": "^1.0.0"
   },
   "engines": {
-    "node": "^6.10.2",
-    "npm": "^3.10.10"
+    "node": "^6.9.1",
+    "npm": "^3.10.8"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
