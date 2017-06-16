@@ -12,7 +12,7 @@
     </p>
     <p> To view data you must have this view open while using a connected Activity or sending test POST requests.
     </p>
-    <p> This data is temporary unless the receiver stores it.  If you want to request searchable data use the PULL service.
+    <p> This data is temporary unless the receiver stores it. If you want to request searchable data use the PULL service.
     </p>
   </div>
   <div class="col-md-6">
@@ -20,6 +20,9 @@
       <code>
 // sample message body 
 {
+    // for security
+    "token": "f7e1379c-35ad-45f9-b0fa-6ef011e73938",
+    // user activity
     "firstName": "John",
     "lastName": "Doe",
     "email": "johndoe@fakeemail.com",
