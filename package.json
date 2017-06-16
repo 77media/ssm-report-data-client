@@ -28,7 +28,6 @@
     "grunt-wiredep": "^3.0.1",
     "jit-grunt": "^0.10.0",
     "jshint-stylish": "^2.2.1",
-    "serve-static": "^1.12.3",
     "time-grunt": "^1.0.0"
   },
   "engines": {
@@ -38,6 +37,8 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "method-override": "^2.3.9",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "serve-static": "^1.12.3",
+    "socket.io": "^2.0.3"
   }
 }
