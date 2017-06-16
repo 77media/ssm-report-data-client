@@ -10,6 +10,9 @@ module.exports = function (app, io, socket) {
 
     // post endpoint for platform to send to -------------------------------------------------------------
     app.post('*', function (req, res) {
+        var message = req.body;
+        message.type = 'message';
+        message.created = Date.now();
         io.sockets.emit('message', req.body);
         res.send(200, 'thanks');
     });
