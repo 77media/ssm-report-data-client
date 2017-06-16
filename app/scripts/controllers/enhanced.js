@@ -19,7 +19,9 @@ angular.module('ssmReportDataClientApp')
 
     // Add an event listener to the 'message' event
     Socket.on('message', function (message) {
-      $scope.rowCollection.unshift(message);
+      if (message.type === 'message') {
+        $scope.rowCollection.unshift(message);
+      }
     });
 
     // Remove the event listener when the controller instance is destroyed
