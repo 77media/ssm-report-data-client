@@ -20,7 +20,7 @@ angular.module('ssmReportDataClientApp')
       platform: 'https://safesport-platform-staging.azurewebsites.net',
       token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938',
       search: '',
-      startDate: new Date().subtractHours(4),
+      startDate: new Date('06-05-2017'),
       endDate: new Date(),
     };
 

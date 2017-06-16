@@ -1,9 +1,42 @@
 <div class="panel">
-  <h1>Recieve Data</h1>
+  <h1>Receive Data</h1>
   <p class="lead">
     Current listeners: <b>{{currentListeners || 1}}</b>
   </p>
-  <p>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <p> To receive data an application needs to have a url enabled that receives a POST.
+    </p>
+    <p> The code in this application implements Socket.IO to show real time data received.
+    </p>
+    <p> To view data you must have this view open while using a connected Activity or sending test POST requests.
+    </p>
+    <p> This data is temporary unless the receiver stores it.  If you want to request searchable data use the PULL service.
+    </p>
+  </div>
+  <div class="col-md-6">
+    <pre>
+      <code>
+// sample message body 
+{
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@fakeemail.com",
+    "memberIdentifier": "12345",
+    "activityTitle": "Activity Sample",
+    "registration": "f53f253f-248b-4bfa-a94b-55cac283765b",
+    "dateStarted": "2017-05-11T12:00:50.279Z",
+    "progress": "100",
+    "dateCompleted": "2017-05-16T12:00:50.000Z",
+    "completionCode": "Fake Code"
+  }
+      </code>
+    </pre>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
     <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
       <thead>
         <tr>
@@ -41,5 +74,5 @@
         </tr>
       </tfoot>
     </table>
-  </p>
+  </div>
 </div>
