@@ -5,7 +5,7 @@
   </p>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <p> To receive data an application needs to have a url enabled that receives a POST.
     </p>
     <p> The code in this application implements Socket.IO to show real time data received.
@@ -15,7 +15,7 @@
     <p> This data is temporary unless the receiver stores it. If you want to request searchable data use the PULL service.
     </p>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <pre>
       <code>
 // sample message body 
@@ -41,47 +41,45 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12">
-    <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
-      <thead>
-        <tr>
-          <th>Transaction Id</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Member Identifier</th>
-          <th>Activity Id</th>
-          <th>Activity Title</th>
-          <th>Registration</th>
-          <th>Date Started</th>
-          <th>Progress</th>
-          <th>Date Completed</th>
-          <th>Completion Code</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="row in rowCollection">
-          <td>{{row.transactionId}} </td>
-          <td>{{row.firstName}} </td>
-          <td>{{row.lastName}} </td>
-          <td>{{row.email}} </td>
-          <td>{{row.memberIdentifier}} </td>
-          <td>{{row.activityId}} </td>
-          <td>{{row.activityTitle}} </td>
-          <td>{{row.registration}} </td>
-          <td>{{row.dateStarted | date:'shortDate'}} </td>
-          <td>{{row.progress}} </td>
-          <td>{{row.dateCompleted | date:'shortDate'}} </td>
-          <td>{{row.completionCode}} </td>
-        </tr>
-      </tbody>
-      <tfoot class="ssm-table-pagination" ng-show="!isLoading && rowCollection.length">
-        <tr ng-style="rowCollection.length<11 ? {'height': '0', 'margin-top':'-1px'} : {}">
-          <td colspan="4" class="text-center" ng-style="rowCollection.length<11 ? {'height': '0', 'min-height':'none'} : {}">
-            <div st-pagination st-safe-src="safe" st-items-by-page="10" st-displayed-pages="8" st-template="views/paging.client.template.html"></div>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
+  <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
+    <thead>
+      <tr>
+        <th>Transaction Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Member Identifier</th>
+        <th>Activity Id</th>
+        <th>Activity Title</th>
+        <th>Registration</th>
+        <th>Date Started</th>
+        <th>Progress</th>
+        <th>Date Completed</th>
+        <th>Completion Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in rowCollection">
+        <td>{{row.transactionId}} </td>
+        <td>{{row.firstName}} </td>
+        <td>{{row.lastName}} </td>
+        <td>{{row.email}} </td>
+        <td>{{row.memberIdentifier}} </td>
+        <td>{{row.activityId}} </td>
+        <td>{{row.activityTitle}} </td>
+        <td>{{row.registration}} </td>
+        <td>{{row.dateStarted | date:'shortDate'}} </td>
+        <td>{{row.progress}} </td>
+        <td>{{row.dateCompleted | date:'shortDate'}} </td>
+        <td>{{row.completionCode}} </td>
+      </tr>
+    </tbody>
+    <tfoot class="ssm-table-pagination" ng-show="!isLoading && rowCollection.length">
+      <tr ng-style="rowCollection.length<11 ? {'height': '0', 'margin-top':'-1px'} : {}">
+        <td colspan="4" class="text-center" ng-style="rowCollection.length<11 ? {'height': '0', 'min-height':'none'} : {}">
+          <div st-pagination st-safe-src="safe" st-items-by-page="10" st-displayed-pages="8" st-template="views/paging.client.template.html"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </div>
