@@ -64,10 +64,12 @@ $http.post('{{model.platform}}/api/reports/progress/', $scope.data).then(
     <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
       <thead>
         <tr>
+          <th>Transaction Id</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
           <th>Member Identifier</th>
+          <th>Activity Id</th>
           <th>Activity Title</th>
           <th>Registration</th>
           <th>Date Started</th>
@@ -78,10 +80,12 @@ $http.post('{{model.platform}}/api/reports/progress/', $scope.data).then(
       </thead>
       <tbody>
         <tr ng-repeat="row in rowCollection">
+          <td>{{row.transactionId}}</td>
           <td>{{row.firstName}} </td>
           <td>{{row.lastName}} </td>
           <td>{{row.email}} </td>
           <td>{{row.memberIdentifier}} </td>
+          <td>{{row.activityId}} </td>
           <td>{{row.activityTitle}} </td>
           <td>{{row.registration}} </td>
           <td>{{row.dateStarted | date:'shortDate'}} </td>

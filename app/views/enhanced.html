@@ -23,10 +23,12 @@
     // for security
     "token": "f7e1379c-35ad-45f9-b0fa-6ef011e73938",
     // user activity
+    "transactionId": "9928",
     "firstName": "John",
     "lastName": "Doe",
     "email": "johndoe@fakeemail.com",
     "memberIdentifier": "12345",
+    "activityId": "https://ssm-activity-sample.azurewebsites.net",
     "activityTitle": "Activity Sample",
     "registration": "f53f253f-248b-4bfa-a94b-55cac283765b",
     "dateStarted": "2017-05-11T12:00:50.279Z",
@@ -43,10 +45,12 @@
     <table st-table="rowCollection" class="table table-striped" st-safe-src="safe">
       <thead>
         <tr>
+          <th>Transaction Id</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
           <th>Member Identifier</th>
+          <th>Activity Id</th>
           <th>Activity Title</th>
           <th>Registration</th>
           <th>Date Started</th>
@@ -57,10 +61,12 @@
       </thead>
       <tbody>
         <tr ng-repeat="row in rowCollection">
+          <td>{{row.transactionId}} </td>
           <td>{{row.firstName}} </td>
           <td>{{row.lastName}} </td>
           <td>{{row.email}} </td>
           <td>{{row.memberIdentifier}} </td>
+          <td>{{row.activityId}} </td>
           <td>{{row.activityTitle}} </td>
           <td>{{row.registration}} </td>
           <td>{{row.dateStarted | date:'shortDate'}} </td>

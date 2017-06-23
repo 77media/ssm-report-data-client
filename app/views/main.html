@@ -22,10 +22,13 @@
   <h4>Response</h4>
   <p>The following fields will be reported to your organization whether you are pulling the data (Enhanced) or having the data
     pushed to you (Real-Time).</p>
+  <p>token: DataTypes.UUID,</p>
+  <p>transactionId: DataTypes.INTEGER,</p>
   <p>firstName: DataTypes.STRING,</p>
   <p>lastName: DataTypes.STRING,</p>
   <p>email: { type: DataTypes.STRING, unique: true},</p>
   <p>memberIdentifier: DataTypes.STRING (not available for native implementations),</p>
+  <p>activityId: DataTypes.STRING,</p>
   <p>activityTitle: DataTypes.STRING,</p>
   <p>registration: DataTypes.UUID,</p>
   <p>dateStarted: DataTypes.DATE,</p>
