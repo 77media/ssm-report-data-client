@@ -13,14 +13,15 @@ https://safesport-platform-staging.azurewebsites.net/api/reports/progress
 
 ```javascript
 {
-  "token": "f7e1379c-35ad-45f9-b0fa-6ef011e73938", // required
-  "startDate": "2017-05-01T00:00:00", // required
-  "endDate": "2017-07-01T00:00:00", // required
-  "search": "", // optional parameter to filter first, last, or activity (default: '')
-  "start": "",  // optional page       (default: 0)
-  "number": "", // optional page size  (default: 10)
-  "sort": "",   // optional sort field (default: firstName)
-  "order" : ""  // optional sort order (default: ASC)
+  token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938', // required
+  startDate: '2017-05-01T00:00:00', // required
+  endDate: '2017-07-01T00:00:00', // required
+  completed: false, // optional
+  search: '', // optional parameter to filter first, last, or activity (default: '')
+  start: 0,  // optional page       (default: 0)
+  number: 10, // optional page size  (default: 10)
+  sort: 'firstName',   // optional sort field (default: firstName)
+  order : 'ASC'  // optional sort order (default: ASC)
 } 
 ```
 
@@ -67,7 +68,7 @@ https://safesport-platform-staging.azurewebsites.net/api/reports/progress
 
 1. Your organization will be provided with a route to access completion data for your members.
 
-2. The route has 3 required parameters which are token (which we provide you), start date and end date.
+2. The route has 3 required parameters which are token (which we provide you), start date and end date.  Other fields are optional.
 ```javascript
     token: DataTypes.UUID,
     startDate: DataTypes.DATE,
@@ -107,7 +108,7 @@ var settings = {
     "content-type": "application/json"
   },
   "processData": false,
-  "data": "{\n\t\"token\": \"f7e1379c-35ad-45f9-b0fa-6ef011e73938\",\n\t\"startDate\": \"2017-05-01T00:00:00\",\n\t\"endDate\": \"2017-07-01T00:00:00\",\n\t\"search\": \"\"\n}"
+  "data": "{\n\t\"token\": \"f7e1379c-35ad-45f9-b0fa-6ef011e73938\",\n\t\"startDate\": \"2017-05-01T00:00:00\",\n\t\"endDate\": \"2017-07-01T00:00:00\",\n\t\"completed\": \"false\",\n\t\"search\": \"\"\n}"
 }
 
 $.ajax(settings).done(function (response) {
@@ -130,6 +131,7 @@ var options = { method: 'POST',
    { token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938',
      startDate: '2017-05-01T00:00:00',
      endDate: '2017-07-01T00:00:00',
+     completed: false,
      search: '' },
   json: true };
 
@@ -148,7 +150,7 @@ request(options, function (error, response, body) {
 var client = new RestClient("https://safesport-platform-staging.azurewebsites.net/api/reports/progress");
 var request = new RestRequest(Method.POST);
 request.AddHeader("content-type", "application/json");
-request.AddParameter("application/json", "{\n\t\"token\": \"f7e1379c-35ad-45f9-b0fa-6ef011e73938\",\n\t\"startDate\": \"2017-05-01T00:00:00\",\n\t\"endDate\": \"2017-07-01T00:00:00\",\n\t\"search\": \"\"\n}", ParameterType.RequestBody);
+request.AddParameter("application/json", "{\n\t\"token\": \"f7e1379c-35ad-45f9-b0fa-6ef011e73938\",\n\t\"startDate\": \"2017-05-01T00:00:00\",\n\t\"endDate\": \"2017-07-01T00:00:00\",\n\t\"completed\": \"false\",\n\t\"search\": \"\"\n}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 
 ```
