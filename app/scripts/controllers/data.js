@@ -20,6 +20,7 @@ angular.module('ssmReportDataClientApp')
       platform: 'https://safesport-platform-staging.azurewebsites.net',
       token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938',
       search: '',
+      completed: false,
       startDate: new Date('06-05-2017'),
       endDate: new Date(),
     };
@@ -28,6 +29,7 @@ angular.module('ssmReportDataClientApp')
     //   platform: 'http://localhost:3000',
     //   token: 'f7e1379c-35ad-45f9-b0fa-6ef011e73938',
     //   search: '',
+    //   completed: 'false',
     //   startDate: new Date().subtractHours(4),
     //   endDate: new Date(),
     // };
@@ -48,6 +50,7 @@ angular.module('ssmReportDataClientApp')
         start: 0,
         number: 10000,
         search: $scope.model.search,
+        completed: $scope.model.completed,
         startDate: $scope.model.startDate,
         endDate: $scope.model.endDate,
         sort: 'lastName',
