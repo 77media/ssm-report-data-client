@@ -9,8 +9,6 @@
  */
 angular.module('ssmReportDataClientApp')
   .controller('DataCtrl', ['$scope', '$http', function ($scope, $http) {
-    var today = new Date();
-
     Date.prototype.subtractHours = function (h) {
       this.setHours(this.getHours() - h);
       return this;
@@ -36,7 +34,6 @@ angular.module('ssmReportDataClientApp')
 
     $scope.isLoading = false;
     $scope.data = {};
-    var _tableState = null;
 
     $scope.rowCollection = [];
 
