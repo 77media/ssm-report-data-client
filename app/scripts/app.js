@@ -25,11 +25,6 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/enhanced', {
-        templateUrl: 'views/enhanced.html',
-        controller: 'EnhancedCtrl',
-        controllerAs: 'enhanced'
-      })
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl',

@@ -64,7 +64,6 @@ https://safesport-platform-staging.azurewebsites.net/api/reports/progress
 ```
 
 ## Process Overview
-### Enhanced
 
 1. Your organization will be provided with a route to access completion data for your members.
 
@@ -76,7 +75,7 @@ https://safesport-platform-staging.azurewebsites.net/api/reports/progress
 ```
 
 ## Organization Registration Fields
-The following fields will be reported to your organization whether you are pulling the data (Enhanced) or having the data pushed to you (Real-Time).
+The following fields will be reported to your organization.
 ```javascript
     transactionId: DataTypes: INTEGER,
     firstName: DataTypes.STRING,
